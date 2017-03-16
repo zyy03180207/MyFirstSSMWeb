@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.open.suns.dao.UserDao">
+	
+	<resultMap type="com.open.suns.entity.User" id="userResultMap">
+		<result column="NAME" jdbcType="VARCHAR" property="name"/>
+		<result column="AGE" jdbcType="INTEGER" property="age"/>
+	</resultMap>
+	
+	<insert id="register" parameterType="com.open.suns.entity.User">
+		insert into tb_user
+		(NAME,AGE)
+		values (#{name,jdbcType=VARCHAR},
+		#{age,jdbcType=INTEGER})
+	</insert>
+</mapper>
